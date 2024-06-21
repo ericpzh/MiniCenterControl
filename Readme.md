@@ -27,5 +27,5 @@ A Mini Airways mod for center ATC. Departure aircraft, depending on the aircraft
 
 - 右键库中的Mini Airways Playtest，属性 - 测试版 - mod_feat, 更新。
 - 下载安装 [BepInEx](https://docs.bepinex.dev/articles/user_guide/installation/index.html)。
-- 复制 [MiniCenterControl.dll](https://github.com/ericpzh/MiniCenterControl/blob/main/bin/Debug/netstandard2.1/MiniCenterControl.dll) 到 `<path_to_game>\Mini Airways Playtest\BepInEx\plugins`。
-- 实例 [地图](https://github.com/ericpzh/MiniCenterControl/blob/main/Osaka.cm1).
+- 复制[MiniCenterControl.dll](https://github.com/ericpzh/MiniCenterControl/blob/main/bin/Debug/netstandard2.1/MiniCenterControl.dll) 到 `<path_to_game>\Mini Airways Playtest\BepInEx\plugins`。
+- 示例[地图](https://github.com/ericpzh/MiniCenterControl/blob/main/Osaka.cm1).
