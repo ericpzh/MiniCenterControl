@@ -2,9 +2,9 @@
 
 A Mini Airways mod for center ATC. Departure aircraft, depending on the aircraft color need to either be directed to a destination waypoint (white plane icon), or another runway (colored plane icon). Departure aircraft can only take off from a specific runway, specified by its border color. Arrival aircraft can only land on a specific runway, also specified by its border color. 
 
-<img src="ui1.png" width=50% height=50%>
+<img src="ui1.png" width=100% height=100%>
 
-<img src="ui2.png" width=50% height=50%>
+<img src="ui2.png" width=100% height=100%>
 
 # How to Install
 
@@ -19,9 +19,9 @@ A Mini Airways mod for center ATC. Departure aircraft, depending on the aircraft
 
 一个模拟区调的迷你空管Mod。若离场飞机图标为白色，则其需要被引导至其边框相应颜色的目标点。若离场飞机图标为其他颜色，则其需要被引导至相应颜色的另一条跑道。离场飞机只能从与其边框相对应颜色的跑道起飞。到达飞机只能降落在与其边框相对应颜色的跑道。
 
-<img src="ui1.png" width=50% height=50%>
+<img src="ui1.png" width=100% height=100%>
 
-<img src="ui2.png" width=50% height=50%>
+<img src="ui2.png" width=100% height=100%>
 
 # 如何安装
 
