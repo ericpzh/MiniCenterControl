@@ -65,7 +65,7 @@ namespace MiniCenterControl
                 colors.Add(color);
                 runway.Square.GetComponent<Renderer>().material.color = ColorCode.GetColor(color);
 
-                if (i > 0)
+                if (MapManager.gameMode != GameMode.SandBox && i > 0)
                 {
                     // At least has as many exit as the amount of runsways.
                     TakeoffTaskManager.Instance.AddApron();
@@ -179,8 +179,41 @@ namespace MiniCenterControl
             if (__instance.direction == Aircraft.Direction.Inbound && 
                 __instance.colorCode == ColorCode.Option.Gray)
             {
-                // Arrivals from outside of the screen.
-                __instance.colorCode = Manager.GetRandomRunwayColor();
+                List<ColorCode.Option> colors = new List<ColorCode.Option>();
+                foreach (Waypoint waypoint in WaypointManager.Instance.Waypoints)
+                {
+                    if (!colors.Contains(waypoint.colorCode) && TakeoffTaskManager.Instance.colorOptions.Contains(waypoint.colorCode))
+                    {
+                        colors.Add(waypoint.colorCode);
+                    }
+                }
+
+                // 25% transiting through the airspace.
+                if (UnityEngine.Random.value < 0.25)
+                {
+                    Vector3 position = __instance.AP.transform.position;
+                    float heading = __instance.heading;
+                    __instance.ConditionalDestroy();
+
+                    // From CreateOutboundAircraft().
+                    Aircraft component = UnityEngine.Object.Instantiate<GameObject>(AircraftManager.Instance.AircraftCirclePrefab, position, Quaternion.identity, AircraftManager.Instance.OutboundRoot.transform).GetComponent<Aircraft>();
+                    component.direction = Aircraft.Direction.Outbound;
+                    component.heading = heading;
+                    component.manualTurn = true;
+                    component.targetManualHeading = heading;
+                    component.targetSpeed = 24f;
+                    component.colorCode = colors[UnityEngine.Random.Range(0, colors.Count)];
+                    component.shapeCode = ShapeCode.Option.Circle;
+
+                    AircraftTag aircraftTag = component.gameObject.AddComponent<AircraftTag>();
+                    aircraftTag.aircraft_ = component;
+                    aircraftTag.color_ = ColorCode.Option.Gray;
+                }
+                else
+                {
+                    // Arrivals from outside of the screen.
+                    __instance.colorCode = Manager.GetRandomRunwayColor();
+                }
             }
         }
     }
@@ -243,7 +276,6 @@ namespace MiniCenterControl
 
             if (((Component)(object)other).gameObject.layer == LayerMask.NameToLayer("Waypoint"))
             {
-                // Do not allow aircraft to exit unless higher than normal.
                 Waypoint waypoint = ((Component)(object)other).GetComponent<WaypointRef>().waypoint;
                 if (waypoint != null && ___colorCode == waypoint.colorCode && ___shapeCode == waypoint.shapeCode)
                 {
@@ -401,7 +433,10 @@ namespace MiniCenterControl
             Plugin.Log.LogInfo("UpgradeManager Starts");
 
             // Max-out all airspace.
-            Camera.main.DOOrthoSize(LevelManager.Instance.maximumCameraOrthographicSize, 0.5f).SetUpdate(isIndependentUpdate: true);
+            if (MapManager.gameMode != GameMode.SandBox)
+            {
+                Camera.main.DOOrthoSize(LevelManager.Instance.maximumCameraOrthographicSize, 0.5f).SetUpdate(isIndependentUpdate: true);
+            }
 
             // Attach Manager to ESC button.
             GameObject esc_button = GameObject.Find("ESC_Button");
@@ -416,7 +451,10 @@ namespace MiniCenterControl
     {
         static void Postfix(ref List<float> __result)
         {
-            __result[4] = 0; // AIRSPACE
+            if (MapManager.gameMode != GameMode.SandBox)
+            {
+                __result[4] = 0; // AIRSPACE
+            }
         }
     }
 
