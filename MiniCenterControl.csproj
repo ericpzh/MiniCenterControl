@@ -3,7 +3,7 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
     <AssemblyName>MiniCenterControl</AssemblyName>
-    <Description>My first plugin</Description>
+    <Description>Mini Center Control Mod</Description>
     <Version>1.0.5</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
     <LangVersion>latest</LangVersion>
