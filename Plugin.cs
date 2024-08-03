@@ -286,7 +286,7 @@ namespace MiniCenterControl
                         __instance.aircraftVoiceAndSubtitles.PlayHandOff();
                         AircraftManager.Instance.AircraftHandOffEvent.Invoke(__instance.gameObject.transform.position);
                         ___reachExit = true;
-                        __instance.Invoke("ConditionalDestroy", 2f);
+                        __instance.Handoff();
                     }
 
                     return false;
