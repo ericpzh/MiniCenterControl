@@ -10,7 +10,7 @@ A Mini Airways mod for center ATC. Departure aircraft, depending on the aircraft
 
 - Switch the game to `mod_feat` [branch](https://partner.steamgames.com/doc/store/application/branches?) on Steam.
 - Backup and remove all `.dll` in `<path_to_game>\Mini Airways\BepInEx\plugins`.
-- Copy [MiniCenterControl.dll](https://github.com/ericpzh/MiniCenterControl/blob/main/bin/Debug/netstandard2.1/MiniCenterControl.dll) into `<path_to_game>\Mini Airways\BepInEx\plugins`
+- Download and move [MiniCenterControl.dll](https://github.com/ericpzh/MiniCenterControl/releases/download/Public/MiniCenterControl.dll) into `<path_to_game>\Mini Airways\BepInEx\plugins`
 - Example [map](https://github.com/ericpzh/MiniCenterControl/blob/main/Osaka.cm1).
 
 ***
@@ -27,5 +27,5 @@ A Mini Airways mod for center ATC. Departure aircraft, depending on the aircraft
 
 - 右键库中的Mini Airways，[属性 - 测试版 - mod_feat](https://partner.steamgames.com/doc/store/application/branches?l=schinese), 更新。
 - 备份然后删除所有 `<path_to_game>\Mini Airways\BepInEx\plugins`里的`.dll`文件。
-- 复制[MiniCenterControl.dll](https://github.com/ericpzh/MiniCenterControl/blob/main/bin/Debug/netstandard2.1/MiniCenterControl.dll) 到 `<path_to_game>\Mini Airways\BepInEx\plugins`。
+- 下载[MiniCenterControl.dll](https://github.com/ericpzh/MiniCenterControl/releases/download/Public/MiniCenterControl.dll) 到 `<path_to_game>\Mini Airways\BepInEx\plugins`。
 - 示例[地图](https://github.com/ericpzh/MiniCenterControl/blob/main/Osaka.cm1).
